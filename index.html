@@ -9,6 +9,18 @@
     <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>ママ友の闇</title>
+    <!-- <style>
+        #Name1 {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+        #Name2 {
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+        }
+    </style> -->
    </head>
 
   <body>
@@ -27,17 +39,56 @@
         firebase.initializeApp(firebaseConfig);
       </script>
 
-<p><div id="Name"></div></p>
-<p><div id="Point"></div></p>
-<script>
-  var database = firebase.database();
-  var dataRef = database.ref('/001');
-  dataRef.once("value")
-  .then(function(snapshot) {
-    document.getElementById("Name").innerHTML = snapshot.child("Name").val();
-    document.getElementById("Point").innerHTML =  snapshot.child("GoodPoint").val() + snapshot.child("BadPoint").val();
-  });
-</script>
+    <!-- <div id="wrapper"></div> -->
+    <!-- <table>
+        <thead>
+            <th>
+                <tr>
+                    <td>名前</td>
+                    <td>評価ポイント</td>
+                </tr>
+            </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td><div id="Name1"></div></td>
+                <td><div id="Point1"></div></td>
+            </tr>
+            <tr>
+                <td id="Name2"></td>
+                <td id="Point2"></td>
+            </tr>
+        </tbody>
+    </table> -->
+
+    <div id="Name1"></div>
+    <div id="Point1"></div>
+    <div id="Name2"></div>
+    <div id="Point2"></div>
+
+    <script>
+    var database = firebase.database();
+
+    async function getDate(i) {
+        var dataRef = await database.ref('/'+ i);
+        var dataRefPoint = await database.ref('/'+ i +'/Point');
+
+        dataRef.once("value").then(function(snapshot) {
+            document.getElementById("Name"+i).innerHTML = snapshot.child("Name").val();
+        });
+        dataRefPoint.once("value").then(function(snapshot) {
+            document.getElementById("Point"+i).innerHTML = snapshot.child("GoodPoint").val() - snapshot.child("BadPoint").val();
+        });
+    };
+
+    for(var i = 1; i < 3; i++) {
+        // var div = document.createElement('div');
+        // div.id = 'Name'+i;
+        // div.className = 'Name'+i;
+        // document.getElementById('wrapper').appendChild(div);
+        getDate(i);
+    };
+    </script>
 
   </body>
 
