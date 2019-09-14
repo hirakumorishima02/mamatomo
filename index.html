@@ -1,0 +1,44 @@
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>  
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>ママ友の闇</title>
+   </head>
+
+  <body>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyDD8od32Lh6qfvNxRxrytEmwtJw5V7PpUw",
+          authDomain: "mamatomo-no-yami.firebaseapp.com",
+          databaseURL: "https://mamatomo-no-yami.firebaseio.com",
+          projectId: "mamatomo-no-yami",
+          storageBucket: "mamatomo-no-yami.appspot.com",
+          messagingSenderId: "753676767600",
+          appId: "1:753676767600:web:edfd2f83c38e321e2f7fb5"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+
+<p><div id="Name"></div></p>
+<p><div id="Point"></div></p>
+<script>
+  var database = firebase.database();
+  var dataRef = database.ref('/001');
+  dataRef.once("value")
+  .then(function(snapshot) {
+    document.getElementById("Name").innerHTML = snapshot.child("Name").val();
+    document.getElementById("Point").innerHTML =  snapshot.child("GoodPoint").val() + snapshot.child("BadPoint").val();
+  });
+</script>
+
+  </body>
+
+</html>
