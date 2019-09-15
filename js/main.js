@@ -22,13 +22,13 @@ async function getDate(i) {
     var dataRef = database.ref('/'+ i);
     var dataRefPoint = database.ref('/'+ i +'/Point');
 
-    dataRef.once("value").then(function(snapshot) {
+    dataRef.on("value", function(snapshot) {
         document.getElementById("Name"+i).innerHTML = snapshot.child("Name").val();
     });
-    dataRefPoint.once("value").then(function(snapshot) {
+    dataRefPoint.on("value", function(snapshot) {
         document.getElementById("Point"+i).innerHTML = snapshot.child("GoodPoint").val() - snapshot.child("BadPoint").val();
     });
-    dataRefPoint.once("value").then(function(snapshot) {
+    dataRefPoint.on("value", function(snapshot) {
         document.getElementById("TuhoCount"+i).innerHTML = snapshot.child("TuhoCount").val();
     });
 };
