@@ -1,6 +1,8 @@
 
 var database = firebase.database();
+count = 0;
 
+// 読み込み処理
 async function getDate(i) {
 
     var tr = document.createElement('tr');
@@ -33,28 +35,47 @@ async function getDate(i) {
     });
 };
 
-for(var i = 1; i < 5; i++) {
-    getDate(i);
-};
+function notEmpty(value) {
+    var result;
+    switch (typeof value) {
+    case 'string':
+        // 文字の0を除く
+        result = (value && value != 0);
+        break;
+    case 'object':
+        // 配列の中身の数チェック
+        result = (value && Object.keys(value).length);
+        break;
+    default:
+        result = value;
+    }
+    return Boolean(result);
+}
+
+for (var i = 1; i <= 20; i++) {
+    var dataRef = database.ref('/'+ i);
+    dataRef.on("value", function(snapshot) {
+        if(notEmpty(snapshot.child("Name").val())) {
+            count += 1;
+        }
+    });
+}
+var timeoutGetData = function timeout() {
+    for(var i = 1; i <= count; i++) {
+        getDate(i);
+        console.log(count);
+    };
+}
+
+setTimeout(timeoutGetData, 2000);
 
 
-// function writeUserData() {
-//     var Name = document.getElementById("name").value;
-//     var Tell = document.getElementById("tell").value;
-//     console.log(Name);
-//     console.log(Tell);
-//     database.ref('mamatomo-no-yami/6').set({
-//       Name: Name,
-//       Point: "",
-//       Tell : Tell
-//     });
-// }
-
-
+// 書き込み処理
 document.getElementById('write').addEventListener('click', function() {
     var Name = document.getElementById("name").value;
     var Tell = document.getElementById("tell").value;
-    firebase.database().ref('/3').set({
+    var countAddOne = count + 1;
+    firebase.database().ref('/' + countAddOne).set({
       Name: Name,
       Point: {
           TuhoCount:0,
@@ -64,5 +85,6 @@ document.getElementById('write').addEventListener('click', function() {
       Tell: Tell
     }).then(function(){
       alert('町内会に登録完了！');
+      window.location.reload();
     });
 });
