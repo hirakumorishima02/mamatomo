@@ -28,8 +28,8 @@ body{
     font-family: 'Noto Serif JP', serif;
     color: red;
     position: relative;
-    /* background-image: url(../bg.jpg); */
-    background-color: black;
+    background-image: url(../bg.jpg);
+    /* background-color: black; */
 }
 
 .container {
