@@ -67,7 +67,7 @@ var timeoutGetData = function timeout() {
     };
 }
 
-setTimeout(timeoutGetData, 2000);
+setTimeout(timeoutGetData, 2500);
 
 
 // 書き込み処理
