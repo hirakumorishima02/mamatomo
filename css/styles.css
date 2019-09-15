@@ -72,3 +72,12 @@ th, td {
 .form-group {
     z-index: 100;
 }
+
+form{
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    z-index:1000;
+    margin-left: 500px;
+    margin-top: 1000px;
+}

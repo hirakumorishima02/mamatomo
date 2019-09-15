@@ -36,3 +36,33 @@ async function getDate(i) {
 for(var i = 1; i < 5; i++) {
     getDate(i);
 };
+
+
+// function writeUserData() {
+//     var Name = document.getElementById("name").value;
+//     var Tell = document.getElementById("tell").value;
+//     console.log(Name);
+//     console.log(Tell);
+//     database.ref('mamatomo-no-yami/6').set({
+//       Name: Name,
+//       Point: "",
+//       Tell : Tell
+//     });
+// }
+
+
+document.getElementById('write').addEventListener('click', function() {
+    var Name = document.getElementById("name").value;
+    var Tell = document.getElementById("tell").value;
+    firebase.database().ref('/3').set({
+      Name: Name,
+      Point: {
+          TuhoCount:0,
+          GoodPoint:0,
+          BadPoint:0,
+      },
+      Tell: Tell
+    }).then(function(){
+      alert('町内会に登録完了！');
+    });
+});
