@@ -88,3 +88,7 @@ document.getElementById('write').addEventListener('click', function() {
       window.location.reload();
     });
 });
+
+// モーダル
+const modal = document.querySelectorAll('.modal');
+M.Modal.init(modal);

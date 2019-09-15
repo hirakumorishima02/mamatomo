@@ -7,18 +7,20 @@
         <link rel="stylesheet" href="./css/styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" href="./css/animate.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script> 
         <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
         <script src="./js/firebase.js"></script>
-        <title>ママ友の闇</title>
+        <title>ままとものやみ</title>
     </head>
     <body>
         <img src="etuko2.png" class="etuko animated fadeInLeft" decoding="async" loading="lazy">
         <nav style="height: 80px;">
             <div class="nav-wrapper">
-              <p class="title animated fadeIn bland-logo" style="line-height: 80px;">ママ友の闇</p>
+              <p class="title animated fadeIn bland-logo" style="line-height: 80px;">ままとものやみ</p>
+              <button data-target="modal1" class="btn-floating btn-large halfway-fab waves-effect waves-light red modal-trigger"><i class="material-icons">add</i></button>
             </div>
         </nav>
         <div class="container row" style="width:100%;"> 
@@ -33,16 +35,22 @@
                 <tbody id="wrapper"></tbody>
             </table>
         </div>
-
-        <form>
-            <input id="name" type="text" value="田中"/>
-            <input id="tell" type="text" value="000-0000-0000"/>
-            <button id="write" type="button">書き込む</button>
-        </form>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h5>ままとものついか</h5>
+                <form>
+                    <input id="name" type="text" />
+                    <input id="tell" type="text" />
+                    <button id="write" class="btn">追加</button>
+                </form>
+            </div>
+        </div>
 
         <!-- <audio>
             <source src="bgm.mp3">
         </audio> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="./js/main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </body>
