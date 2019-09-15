@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <link rel="stylesheet" href="./css/senkyo.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="./css/animate.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script> 
+        <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
+        <script src="./js/firebase.js"></script>
+        <title>せんきょ</title>
+    </head>
+    <body>
+        <img src="etuko3.png" class="etuko animated fadeInUp" decoding="async" loading="lazy">
+        <nav style="height: 80px;">
+            <div class="nav-wrapper">
+              <p class="title animated fadeIn bland-logo" style="line-height: 80px;">せんきょ</p>
+              <button data-target="modal1" class="btn-floating btn-large halfway-fab waves-effect waves-light red modal-trigger"><i class="material-icons">add</i></button>
+            </div>
+        </nav>
+        <div class="container row" style="width:100%;"> 
+            <table class="centered col s10 m10 l8 offset-s1 offset-m1 offset-l3">
+                <thead>
+                    <tr>
+                        <th>名前</th>
+                        <th>投票数</th>
+                        <th>立候補回数</th>
+                    </tr>
+                </thead>
+                <tbody id="wrapper"></tbody>
+            </table>
+        </div>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h5>りっこうほ</h5>
+                <form>
+                    <input id="name" type="text" placeholder="なまえ"/>
+                    <input id="tell" type="text" placeholder="でんわばんごう"/>
+                    <button id="write" class="btn">追加</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- <audio>
+            <source src="bgm.mp3">
+        </audio> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+</html>

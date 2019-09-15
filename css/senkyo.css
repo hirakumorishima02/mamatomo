@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP&display=swap');
+
+
+.title {
+    animation-delay: 2s;
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center;
+    z-index: 100;
+}
+
+@media screen and (max-width:800px) { 
+    .title {
+        animation-delay: 2s;
+        font-size: 30px;
+        font-weight: bolder;
+        text-align: center;
+        z-index: 100;
+    }
+}
+
+.body, .container, .etuko {
+    position: absolute;
+}
+
+
+body{
+    font-family: 'Noto Serif JP', serif;
+    color: red;
+    position: relative;
+    background-image: url(../senkyoBG.jpg);
+    background-size: cover;
+    /* background-color: black; */
+}
+
+.container {
+    width: 80%;
+    font-size: 50px;
+    z-index: 10;
+    margin-top: 60px!important;
+}
+
+table {
+    background-color: #ccffcc;
+    opacity: 0.5;
+}
+
+@media screen and (max-width:800px) { 
+    table {
+        background-color: #ccffcc;
+        opacity: 0.7;
+    }
+}
+
+.etuko {
+    animation-delay: 2s;
+    margin: 0 0 0 auto;
+    z-index: 1;
+    height:100%;
+}
+
+th, td {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+@media screen and (max-width:400px) { 
+    th, td {
+        font-size: 20px;
+        font-weight: bolder;
+    }
+}
+
+.form-group {
+    z-index: 100;
+}
