@@ -9,9 +9,20 @@
     z-index: 100;
 }
 
+@media screen and (max-width:800px) { 
+    .title {
+        animation-delay: 2s;
+        font-size: 30px;
+        font-weight: bolder;
+        text-align: center;
+        z-index: 100;
+    }
+}
+
 .body, .container, .etuko {
     position: absolute;
 }
+
 
 body{
     font-family: 'Noto Serif JP', serif;
@@ -29,7 +40,14 @@ body{
 
 table {
     background-color: #ccffcc;
-    opacity: 0.3;
+    opacity: 0.5;
+}
+
+@media screen and (max-width:800px) { 
+    table {
+        background-color: #ccffcc;
+        opacity: 0.7;
+    }
 }
 
 .etuko {
@@ -42,6 +60,13 @@ table {
 th, td {
     font-size: 30px;
     font-weight: bolder;
+}
+
+@media screen and (max-width:400px) { 
+    th, td {
+        font-size: 20px;
+        font-weight: bolder;
+    }
 }
 
 .form-group {
